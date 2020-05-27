@@ -7,7 +7,7 @@ count_num = 0
 roles = 0
 
 
-token = '554484948:AAGk7Zbam6MZV_wLXlPhVjHKA5leei316q8'
+token = '994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA'
 bot = telebot.TeleBot(token)
 
 
