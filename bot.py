@@ -29,19 +29,7 @@ def echo_all(message):
 def echo_all(message):
     if message.text.lower() == "привет":
         bot.send_message(message.chat.id, "добрый вечер")
-    if message.text.lower() == "ж":
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬛️⬜️⬛️⬛️⬜️⬛️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬜️⬛️⬛️⬜️⬜️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬜️⬛️⬛️⬜️⬜️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬛️⬜️⬛️⬛️⬜️⬛️⬜️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️")
-        bot.send_message(message.chat.id, "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️")
+
 
 
 while True:
