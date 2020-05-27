@@ -1,52 +1,39 @@
-#!/usr/bin/env python
-import random
-import pickle
-
 import telebot
-from telebot import types
-from telebot.types import Message
+import time
+import configparser
 
-TOKEN = '994681852:AAFCiLbExmjsFrXnTGtXVd81r8siRcFAoec'
-STICKER_ID = 'CAADAgADXwMAAgw7AAEKTh8jAAH9Q-gAAQI'
-
-bot = telebot.TeleBot(TOKEN)
-
-USERS = set()
+config = configparser.ConfigParser()
+config.read('connect.ini')
+config_data = config['DEFAULT']
 
 
+bot = telebot.TeleBot(config_data['token'])
+
+# commands
 @bot.message_handler(commands=['start', 'help'])
-def command_handler(message: Message):
-    bot.reply_to(message, 'There is no answer =(')
+def handle_command_menu(message):
+    bot.send_message(chat_id=message.chat.id,
+                     text="✨hello")
+
+# stickers
+@bot.message_handler(content_types=["sticker"])
+def echo_all(message):
+    print("---------- @" + message.from_user.username, "aka ", message.from_user.first_name)
+    print(message.json["sticker"]["thumb"]["file_unique_id"])
+
+    if message.json["sticker"]["thumb"]["file_unique_id"] == "AQADY_pIDwAECUMAAg":
+        bot.send_message(message.chat.id, "sticker with id: AQADY_pIDwAECUMAAg")
+
+# text
+@bot.message_handler(content_types=["text"])
+def echo_all(message):
+    if message.text.lower() == "привет":
+        bot.send_message(message.chat.id, "добрый вечер")
 
 
-@bot.message_handler(content_types=['text'])
-@bot.edited_message_handler(content_types=['text'])
-def echo_digits(message: Message):
-    print(message.from_user.id)
-    if 'zhopa' in message.text:
-        bot.reply_to(message, 'zhopa')
-        return
-    reply = str(random.random())
-    if message.from_user.id in USERS:
-        reply += f"  {message.from_user}, hello again"
-    bot.reply_to(message, reply)
-    USERS.add(message.from_user.id)
-
-
-@bot.message_handler(content_types=['sticker'])
-def sticker_handler(message: Message):
-    bot.send_sticker(message.chat.id, STICKER_ID)
-
-
-@bot.inline_handler(lambda query: query.query)
-def query_text(inline_query):
-    print(inline_query)
+while True:
     try:
-        r = types.InlineQueryResultArticle('1', 'Result', types.InputTextMessageContent('Result message.'))
-        r2 = types.InlineQueryResultArticle('2', 'Result2', types.InputTextMessageContent('Result message2.'))
-        bot.answer_inline_query(inline_query.id, [r, r2])
+        bot.polling(none_stop=True)
     except Exception as e:
-        print(e)
-
-
-bot.polling(timeout=60)
+        print("Connection Error", e)
+        time.sleep(15)
