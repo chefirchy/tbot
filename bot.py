@@ -26,7 +26,7 @@ def handle_command_menu(message):
                           "⬜️⬛️⬜️⬜️⬛️⬜️⬜️⬛️⬜️\n"
                           "⬜️⬛️⬜️⬜️⬛️⬜️⬜️⬛️⬜️\n"
                           "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️\n")
-@bot.message_handler(commands=['j', 'J'])
+@bot.message_handler(commands=['Oof', 'oof'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
                      text="🟨🟨🟨🟨🟨🟨\n"
