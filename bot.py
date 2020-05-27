@@ -7,7 +7,7 @@ config.read('connect.ini')
 config_data = config['DEFAULT']
 
 
-bot = telebot.TeleBot(config_data['token'])
+bot = telebot.TeleBot(config_data['994681852:AAFCiLbExmjsFrXnTGtXVd81r8siRcFAoec'])
 
 # commands
 @bot.message_handler(commands=['start', 'help'])
