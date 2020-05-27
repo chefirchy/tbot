@@ -14,6 +14,21 @@ bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
                      text="✨hello")
+@bot.message_handler(commands=['Ж', 'ж'])
+def handle_command_menu(message):
+    bot.send_message(chat_id=message.chat.id,
+                     text="⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️"\n
+                          "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️"\n
+                          "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️"\n
+                          "⬜️⬜️⬛️⬜️⬛️⬛️⬜️⬛️⬜️⬜️"\n
+                          "⬜️⬜️⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬜️"\n
+                          "⬜️⬜️⬜️⬜️⬛️⬛️⬜️⬜️⬜️⬜️"\n
+                          "⬜️⬜️⬜️⬜️⬛️⬛️⬜️⬜️⬜️⬜️"\n
+                          "⬜️⬜️⬜️⬛️⬛️⬛️⬛️⬜️⬜️⬜️"\n
+                          "⬜️⬜️⬛️⬜️⬛️⬛️⬜️⬛️⬜️⬜️"\n
+                          "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️"\n
+                          "⬜️⬛️⬜️⬜️⬛️⬛️⬜️⬜️⬛️⬜️"\n
+                          "⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️"\n)
 
 # stickers
 @bot.message_handler(content_types=["sticker"])
