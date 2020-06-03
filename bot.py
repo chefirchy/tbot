@@ -56,7 +56,10 @@ def handle_command_menu(message):
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
                      text="Арифметичним n-вимірним простором будемо називати множину усіх n-вимірних векторів, на якій визначено операції додавання векторів та множення векторів")
-      
+@bot.message_handler(commands=['3', 'c'])
+def handle_command_menu(message):
+    bot.send_message(chat_id=message.chat.id,    
+                     text="Оператор у векторному просторі L - функція множиною визначення і множиною значень якої є простір L")     
     
 
 # stickers
