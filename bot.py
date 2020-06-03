@@ -52,24 +52,29 @@ def echo_all(message):
 @bot.message_handler(content_types=["text"])
 def echo_all(message):
     if message.text.lower() == "Вопросы":
-        bot.send_message(message.chat.id, "1.фундаментальна система розв'язків\n"
-                                           "2.ранг оператора\n"
-                                             "3.арифметичний n-вимірний простір\n"
-                                               "4.Оператор у векторному просторі\n")
+        bot.send_message(message.chat.id, 
+                                     text="1.фундаментальна система розв'язків\n"
+                                          "2.ранг оператора\n"
+                                          "3.арифметичний n-вимірний простір\n"
+                                          "4.Оператор у векторному просторі\n")
 @bot.message_handler(content_types=["text"])
 def echo_all(message):
     if message.text.lower() == "1":
-        bot.send_message(message.chat.id, "Фундаментальною системою розв'язків системи неоднорідних рівнянь\n" 
+        bot.send_message(message.chat.id, 
+                                      text="Фундаментальною системою розв'язків системи неоднорідних рівнянь\n" 
                                           "називається така лінійно незалежна сукупність її розв'язків, що всякий\n"
                                           "розв'язок даної системи є якоюсь лінійною комбінацією розв'язків цієї сукупності\n")
 @bot.message_handler(content_types=["text"])
 def echo_all(message):    
     if message.text.lower() == "2":
-        bot.send_message(message.chat.id, "Розмірність області значень LnA називають рангом оператора А і позначають rang A\n"
+        bot.send_message(message.chat.id, 
+                                        text="Розмірність області значень LnA називають рангом оператора А і позначають rang A\n"
+
 @bot.message_handler(content_types=["text"])
 def echo_all(message):    
     if message.text.lower() == "3":
-        bot.send_message(message.chat.id, "Арифметичним n-вимірним простором будемо називати множину усіх n-вимірних"
+        bot.send_message(message.chat.id, 
+                                     text="Арифметичним n-вимірним простором будемо називати множину усіх n-вимірних"
                                           "векторів, на якій визначено операції додавання векторів та множення векторів")
 
 
