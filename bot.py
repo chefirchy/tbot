@@ -65,7 +65,7 @@ def echo_all(message):
 @bot.message_handler(content_types=["text"])
 def echo_all(message):    
     if message.text.lower() == "2":
-        bot.send_message(message.chat.id, "Розмірність області значень LnA називають рангом оператора А і позначають rang A\n"if message.text.lower() == "2":
+        bot.send_message(message.chat.id, "Розмірність області значень LnA називають рангом оператора А і позначають rang A\n"
 @bot.message_handler(content_types=["text"])
 def echo_all(message):    
     if message.text.lower() == "3":
