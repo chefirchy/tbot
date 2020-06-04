@@ -47,7 +47,8 @@ def handle_command_menu(message):
                           "5.однорідна система лінійних рівнянь\n"
                           "6.система лінійних рівнянь\n"
                           "7.лінійні та векторні простори\n"
-                          "8.n-вимірний вектор\n")
+                          "8.n-вимірний вектор\n"
+                          "9.фундаментальна система роз'вязків\n")
 @bot.message_handler(commands=['1', 'o'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
@@ -55,7 +56,7 @@ def handle_command_menu(message):
 @bot.message_handler(commands=['2', 'd'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
-                     text="Розмірність області значень LnA називають рангом оператора А і позначають rang A\n")
+                     text="Розмірність області значень LnA називають рангом оператора А і позначають rang A(приметка: тут л н,а не логарифм)\n")
 @bot.message_handler(commands=['3', 't'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
@@ -82,6 +83,11 @@ def handle_command_menu(message):
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
                      text="Будь-який вектор арифметичного простору будемо розуміти як упорядкувану н-ку дійсних чисел")
+@bot.message_handler(commands=['9', 'c'])
+def handle_command_menu(message):
+    bot.send_message(chat_id=message.chat.id,    
+                     text="Фундаментальної системою роз'вязків системи однорідних лінійних рівнянь називається така лінійно незалежна сукупність її розв'язків, що всяких розв'язок даної системи є якоюсь лінійною комбінацією розв'язків з цієї сукупності")
+             
 # stickers
 @bot.message_handler(content_types=["sticker"])
 def echo_all(message):
