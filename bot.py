@@ -78,7 +78,7 @@ def handle_command_menu(message):
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
                      text="Множина V елементів x, y, z,… називається лінійним, або векторним простором, якщо сума х+у довільних двох її елементів х, у і добуток αх кожного її елемента х на будь-яке число α теж належать множині V")
-    @bot.message_handler(commands=['8', 'c'])
+@bot.message_handler(commands=['8', 'c'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
                      text="Будь-який вектор арифметичного простору будемо розуміти як упорядкувану н-ку дійсних чисел")
