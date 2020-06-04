@@ -47,7 +47,8 @@ def handle_command_menu(message):
                           "5.однорідна система лінійних рівнянь\n"
                           "6.система лінійних рівнянь\n"
                           "7.лінійні та векторні простори\n"
-                          "8.n-вимірний вектор\n")
+                          "8.n-вимірний вектор\n"
+                          "9.ядро оператора(позначення, розмірність)\n")
 @bot.message_handler(commands=['1', 'o'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
@@ -81,7 +82,13 @@ def handle_command_menu(message):
 @bot.message_handler(commands=['8', 'c'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,    
-                     text="Будь-який вектор арифметичного простору будемо розуміти як упорядкувану н-ку дійсних чисел")           
+                     text="Будь-який вектор арифметичного простору будемо розуміти як упорядкувану н-ку дійсних чисел") 
+@bot.message_handler(commands=['9', 'c'])
+def handle_command_menu(message):
+    bot.send_message(chat_id=message.chat.id,    
+                     text="Ядром лінійного оператора А простору Ln називається сукупність всіх векторів цього простору, які оператором А відображаються в нульовий вектор.\n"
+                           "Ядро лінійного оператора позначається KerA.\n" 
+                           "Розмірність ядра оператора А називається дефектом цього оператора\n")
 # stickers
 @bot.message_handler(content_types=["sticker"])
 def echo_all(message):
