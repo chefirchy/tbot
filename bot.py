@@ -9,6 +9,18 @@ config_data = config['DEFAULT']
 
 bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
 
+keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
+keyboard1.row('Вопросы')
+
+keyboard2 = telebot.types.ReplyKeyboardMarkup(True)
+keyboard2.row('1', '2', '3')
+keyboard2.row('4', '5', '6')
+keyboard2.row('7', '8', '9')
+keyboard2.row('Назад')
+@bot.message_handler(commands=['Назад'])
+def back(message):
+    bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
+
 # commands
 @bot.message_handler(commands=['start', 'help'])
 def handle_command_menu(message):
