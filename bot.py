@@ -78,6 +78,10 @@ def start_message(message):
         bot.send_message(message.chat.id, text="Ядром лінійного оператора А простору Ln називається сукупність всіх векторів цього простору, які оператором А відображаються в нульовий вектор.\n"
                            "Ядро лінійного оператора позначається KerA.\n" 
                            "Розмірність ядра оператора А називається дефектом цього оператора\n", reply_markup=keyboard2)             
+@bot.message_handler(content_types=['text'])
+def start_message(message):
+    if message.text == 'Назад':
+        bot.send_message(message.chat.id, text=" Хорошо", reply_markup=keyboard1)
         
         
 @bot.message_handler(commands=['j', 'J'])
