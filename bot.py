@@ -25,7 +25,7 @@ def back(message):
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard1)
-@bot.message_handler(commands=['Вопросы])
+@bot.message_handler(commands=['Вопросы'])
 def start_message(message):
     bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard2)
 
