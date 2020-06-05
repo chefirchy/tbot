@@ -38,9 +38,7 @@ def start_message(message):
                           "7.лінійні та векторні простори\n"
                           "8.n-вимірний вектор\n"
                           "9.ядро оператора(позначення, розмірність)\n", reply_markup=keyboard2)
-@bot.message_handler(content_types=['text'])
-def o_message(message):
-    if message.text == '1':
+    elif message.text == '1':
         bot.send_message(message.chat.id, text="Фундаментальною системою розв'язків системи неоднорідних рівнянь називається така лінійно незалежна сукупність її розв'язків, що всякий розв'язок даної системи є якоюсь лінійною комбінацією розв'язків цієї сукупності")
     elif message.text == '2':
         bot.send_message(message.chat.id, text="Розмірність області значень LnA називають рангом оператора А і позначають rang A(приметка: тут л н,а не логарифм)\n")
