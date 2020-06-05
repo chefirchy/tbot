@@ -22,10 +22,12 @@ def back(message):
     bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
 
 # commands
-@bot.message_handler(commands=['start', 'help'])
-def handle_command_menu(message):
-    bot.send_message(chat_id=message.chat.id,
-                     text="✨hello")
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard1)
+
+
+    
 @bot.message_handler(commands=['j', 'J'])
 def handle_command_menu(message):
     bot.send_message(chat_id=message.chat.id,
