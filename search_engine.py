@@ -1,12 +1,13 @@
 ## Краткий синтаксис ожидаемого языка разметки для бота
-## строка, которая начинается с @ - заголовок
-## Все что в __здесь__ - это важный текст
+## строка, которая начинается с # - заголовок
+## Все что в **здесь** - это важный текст
 import re
 
 # Функция принимает как аргумент текст, который следует искать, и массив с сообщений, в которых нужно искать
 def get_best_match(text, messages = []):
+  assert(len(messages) != 0)
   score_of_best_match = 0
-  best_match_index = None
+  best_match_index = 0
 
   i = 0
   for message in messages:
@@ -22,12 +23,12 @@ def get_best_match(text, messages = []):
       best_match_index = i
 
     i += 1
-  
+
   return format_text(text, messages[best_match_index])
 
 # Возвращает количество text в message помеченных как заголовки c помощью @
 def get_header_appearances(text, message):
-  appearances = re.findall(rf'.*\@.*{text}?', message, flags = re.IGNORECASE)
+  appearances = re.findall(rf'.*\#.*{text}?', message, flags = re.IGNORECASE)
   return len(appearances)
 
 # Возвращает количество text в message
@@ -36,13 +37,13 @@ def get_appearances(text, message):
 # Возвращает количество text в message условно выделенных с помощью __ __
 def get_bold_appearances(text, message):
   appearances_count = 0
-  boldText = re.findall(r'\_\_.*?\_\_', message, flags = re.IGNORECASE | re.MULTILINE)
+  boldText = re.findall(r'\*\*.*?\*\*', message, flags = re.IGNORECASE | re.MULTILINE)
   for bold in boldText:
     appearances_count += bold.lower().count(text.lower())
   return appearances_count
 
 # Функция выделяет в message text с помощью ** **, а также удаляет символы @
 def format_text(text, message):
-  header_less = message.replace('@', '')
-  bolded = re.sub(rf'({text})', r'**\1**', header_less, flags=re.IGNORECASE)
+  headerless = message.replace('#', '')
+  bolded = re.sub(rf'({text})', r'*\1*', headerless, flags=re.IGNORECASE | re.MULTILINE)
   return bolded
