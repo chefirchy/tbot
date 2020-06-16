@@ -39,6 +39,10 @@ def back(message):
 def back(message):
     bot.send_message(message.chat.id, reply_markup=keyboard2)
     
+@bot.message_handler(commands=['Вопросы'])
+def back(message):
+    bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
+    
 @bot.message_handler(commands=['Назад'])
 def back(message):
     bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
