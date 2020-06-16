@@ -17,35 +17,7 @@ bot = telebot.TeleBot("994681852:AAELqSBRuYUS_L--7MjnRmKVqqDuvoT_KXs")
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы')
 
-keyboard2 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard2.row('1', '2', '3','4','5')
-keyboard2.row('6', '7', '8','9','10')
-keyboard2.row('11', '12','13','14','15')
-keyboard2.row('16','17','18','19','20')
-keyboard2.row('Назад','2 страница')
 
-keyboard3 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard3.row('21', '22', '23','24','25')
-keyboard3.row('26', '27', '28','29','30')
-keyboard3.row('31', '32','33','34','35')
-keyboard3.row('36','37','38','39','40')
-keyboard3.row('1 страница')
-
-@bot.message_handler(commands=['2 страница'])
-def back(message):
-    bot.send_message(message.chat.id, reply_markup=keyboard3)
-
-@bot.message_handler(commands=['1 страница'])
-def back(message):
-    bot.send_message(message.chat.id, reply_markup=keyboard2)
-    
-@bot.message_handler(commands=['Вопросы'])
-def back(message):
-    bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
-    
-@bot.message_handler(commands=['Назад'])
-def back(message):
-    bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
 
 def handleAddAnswer(answer, chatId):
     data['messages'].append("# " + answer)
