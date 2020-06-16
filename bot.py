@@ -12,7 +12,7 @@ dataFile = open('storage.json', encoding='utf-8')
 data = json.load(dataFile)
 dataFile.close()
 
-bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
+bot = telebot.TeleBot("994681852:AAELqSBRuYUS_L--7MjnRmKVqqDuvoT_KXs")
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы')
