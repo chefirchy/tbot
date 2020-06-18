@@ -12,7 +12,7 @@ dataFile = open('storage.json', encoding='utf-8')
 data = json.load(dataFile)
 dataFile.close()
 
-bot = telebot.TeleBot("1135785890:AAETeKFSM3Gm_I2J2jp7_aVIIy7kalrcBPk")
+bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы')
@@ -25,7 +25,9 @@ def handleAddAnswer(answer, chatId):
     bot.send_message(chatId, text = "Ваш ответ успешно обработан")
 
 def handleSearch(query, chatID):
-    best_match_answer = get_best_match(query, data['messages'])
+    if(len(data['messages']) == 0):
+        return
+    best_match_answer = get_best_match(query, )
     bot.send_message(chatID, text = best_match_answer, parse_mode='Markdown')
 
 def isNumericString(strNum):

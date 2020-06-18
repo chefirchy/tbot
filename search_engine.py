@@ -5,7 +5,6 @@ import re
 
 # Функция принимает как аргумент текст, который следует искать, и массив с сообщений, в которых нужно искать
 def get_best_match(text, messages = []):
-  assert(len(messages) != 0)
   score_of_best_match = 0
   best_match_index = 0
 
