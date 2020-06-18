@@ -27,9 +27,10 @@ def handleAddAnswer(answer, chatId):
     bot.send_message(chatId, text = "Ваш ответ успешно обработан")
 
 def handleSearch(query, chatID):
-    best_match_answer = get_best_match(query, data['messages'])
+    if(len(data['messages']) == 0):
+        return
+    best_match_answer = get_best_match(query, )
     bot.send_message(chatID, text = best_match_answer, parse_mode='Markdown')
-    print(query, 'search')
 
 def isNumericString(strNum):
     try:

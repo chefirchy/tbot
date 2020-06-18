@@ -5,7 +5,6 @@ import re
 
 # Функция принимает как аргумент текст, который следует искать, и массив с сообщений, в которых нужно искать
 def get_best_match(text, messages = []):
-  assert(len(messages) != 0)
   score_of_best_match = 0
   best_match_index = 0
 
@@ -15,11 +14,8 @@ def get_best_match(text, messages = []):
     bold_appearances_count = get_bold_appearances(text, message)
     common_appearances_count = get_appearances(text, message) - bold_appearances_count - header_apearances_count
     
-    if header_apearances_count != 0:
-      best_match_index = i
-      break
-    if bold_appearances_count * 2.5 + common_appearances_count > score_of_best_match:
-      score_of_best_match = bold_appearances_count * 2.5 + common_appearances_count
+    if bold_appearances_count * 2.5 + common_appearances_count > score_of_best_match + common_appearances_count + header_apearances_count * 10:
+      score_of_best_match = bold_appearances_count * 2.5 + common_appearances_count + header_apearances_count * 10
       best_match_index = i
 
     i += 1
