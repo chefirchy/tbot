@@ -29,7 +29,9 @@ def handleAddAnswer(answer, chatId):
 def handleSearch(query, chatID):
     if(len(data['messages']) == 0):
         return
-    best_match_answer = get_best_match(query, )
+    best_match_answer = get_best_match(query, data['messages'])
+    if (best_match_answer == '' or best_match_answer == None):
+        return
     bot.send_message(chatID, text = best_match_answer, parse_mode='Markdown')
 
 def isNumericString(strNum):
