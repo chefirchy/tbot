@@ -14,15 +14,17 @@ def get_best_match(text, messages = []):
     bold_appearances_count = get_bold_appearances(text, message)
     common_appearances_count = get_appearances(text, message) - bold_appearances_count - header_apearances_count
     
-    if bold_appearances_count * 2.5 + common_appearances_count > score_of_best_match + common_appearances_count + header_apearances_count * 10:
-      score_of_best_match = bold_appearances_count * 2.5 + common_appearances_count + header_apearances_count * 10
+    if header_apearances_count != 0:
       best_match_index = i
+      break
+    if bold_appearances_count * 2.5 + common_appearances_count > score_of_best_match:
+      score_of_best_match = bold_appearances_count * 2.5 + common_appearances_count
 
     i += 1
 
   return format_text(text, messages[best_match_index])
 
-# Возвращает количество text в message помеченных как заголовки c помощью @
+# Возвращает количество text в message помеченных как заголовки c помощью #
 def get_header_appearances(text, message):
   appearances = re.findall(rf'.*\#.*{text}?', message, flags = re.IGNORECASE)
   return len(appearances)
