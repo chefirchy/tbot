@@ -15,7 +15,7 @@ dataFile.close()
 bot = telebot.TeleBot("994681852:AAFaUBvSb-VF275NQj1iXXVq9283QiUWq4o")
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard1.row('Вопросы')
+keyboard1.row('Вопросы','Помощь')
 
 def handleAddAnswer(answer, chatId):
     data['messages'].append("# " + answer)
@@ -63,6 +63,12 @@ def start_message(message):
 @bot.message_handler(commands=['Назад'])
 def back(message):
     bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
+@bot.message_handler(content_types=['text'])
+def start_message(message):
+    if message.text == 'Помощь':
+        bot.send_message(message.chat.id, text="Пример добавления вопроса:\n"
+                         "Добавить ответ:Сюда пишем вопрос\n"
+                         "Тут ответ\n")
 
 @bot.message_handler(content_types=['text'])
 def handle_message(message):
