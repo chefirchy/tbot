@@ -72,16 +72,19 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_message(message):
-    if message.text.lower().startswith('добавить ответ:'):
-        handleAddAnswer(message.text[15:], message.chat.id)
-    elif (isNumericString(message.text) and int(message.text) <= len(data['messages'])):
-        bot.send_message(message.chat.id, text=data['messages'][int(message.text) - 1])
-    elif message.text.lower() == 'вопросы':
-        handleQuestionHeaders(message.chat.id)
-    elif message.text == 'Назад':
-        bot.send_message(message.chat.id, text="Хорошо", reply_markup=keyboard1)
-    else:
-        handleSearch(message.text, message.chat.id)
+    
+        if message.text.lower().startswith('добавить ответ:'):
+            if (message.from_user.id == 420851241):
+                handleAddAnswer(message.text[15:], message.chat.id)
+        elif (isNumericString(message.text) and int(message.text) <= len(data['messages'])):
+            bot.send_message(message.chat.id, text=data['messages'][int(message.text) - 1])
+        elif message.text.lower() == 'вопросы':
+            handleQuestionHeaders(message.chat.id)
+        elif message.text == 'Назад':
+            bot.send_message(message.chat.id, text="Хорошо", reply_markup=keyboard1)
+        else:
+            handleSearch(message.text, message.chat.id)
+
         
 @bot.message_handler(content_types=["sticker"])
 def echo_all(message):
@@ -97,3 +100,4 @@ while True:
     except Exception as e:
         print("Connection Error", e)
         time.sleep(15)
+
