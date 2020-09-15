@@ -79,6 +79,7 @@ def handle_message(message):
         elif (isNumericString(message.text) and int(message.text) <= len(data['messages'])):
             bot.send_message(message.chat.id, text=data['messages'][int(message.text) - 1])
         elif message.text.lower() == 'Вопросы':
+            bot.send_message(message.chat.id, text=" Хорошо")
             handleQuestionHeaders(message.chat.id)
         elif message.text == 'Назад':
             bot.send_message(message.chat.id, text="Хорошо", reply_markup=keyboard1)
