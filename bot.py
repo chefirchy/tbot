@@ -12,7 +12,7 @@ dataFile = open('storage.json', encoding='utf-8')
 data = json.load(dataFile)
 dataFile.close()
 
-bot = telebot.TeleBot("994681852:AAFaUBvSb-VF275NQj1iXXVq9283QiUWq4o")
+
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы','Помощь')
@@ -78,7 +78,7 @@ def handle_message(message):
                 handleAddAnswer(message.text[15:], message.chat.id)
         elif (isNumericString(message.text) and int(message.text) <= len(data['messages'])):
             bot.send_message(message.chat.id, text=data['messages'][int(message.text) - 1])
-        elif message.text.lower() == 'вопросы':
+        elif message.text.lower() == 'Вопросы':
             handleQuestionHeaders(message.chat.id)
         elif message.text == 'Назад':
             bot.send_message(message.chat.id, text="Хорошо", reply_markup=keyboard1)
