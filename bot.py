@@ -12,11 +12,6 @@ dataFile = open('storage.json', encoding='utf-8')
 data = json.load(dataFile)
 dataFile.close()
 
-
-
-keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard1.row('Вопросы','Помощь')
-
 def handleAddAnswer(answer, chatId):
     data['messages'].append("# " + answer)
     dataFile = open('storage.json', 'w', encoding="utf-8")
@@ -58,12 +53,7 @@ def handleQuestionHeaders(chatId):
     bot.send_message(chatId, text = headers)
 
 @bot.message_handler(commands=['start'])
-def start_message(message):
-    bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard1)
-@bot.message_handler(commands=['Назад'])
-def back(message):
-    bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
-@bot.message_handler(content_types=['text'])
+
 def start_message(message):
     if message.text == 'Помощь':
         bot.send_message(message.chat.id, text="Пример добавления вопроса:\n"
