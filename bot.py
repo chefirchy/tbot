@@ -63,8 +63,7 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def handle_message(message):
     
-        if message.text.lower().startswith('добавить ответ:'):
-            if (message.from_user.id == 420851241):
+        if message.text.lower().startswith('добавить ответ:')
                 handleAddAnswer(message.text[15:], message.chat.id)
         elif (isNumericString(message.text) and int(message.text) <= len(data['messages'])):
             bot.send_message(message.chat.id, text=data['messages'][int(message.text) - 1])
