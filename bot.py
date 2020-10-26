@@ -7,7 +7,7 @@ config.read('connect.ini')
 config_data = config['DEFAULT']
 
 
-bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
+bot = telebot.TeleBot("994681852:AAFaUBvSb-VF275NQj1iXXVq9283QiUWq4o")
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы')
