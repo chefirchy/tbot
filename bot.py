@@ -12,11 +12,56 @@ bot = telebot.TeleBot("994681852:AAGdns6Oa4IWJvvC1x61HNERlzcjOoTNIdA")
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Вопросы')
 
+
+
+def handleAddAnswer(answer, chatId):
+    data['messages'].append("# " + answer)
+    dataFile = open('storage.json', 'w', encoding="utf-8")
+    json.dump(data, dataFile, ensure_ascii=True)
+    dataFile.close()
+    bot.send_message(chatId, text = "Ваш ответ успешно обработан")
+
+def handleSearch(query, chatID):
+    if(len(data['messages']) == 0):
+        return
+    best_match_answer = get_best_match(query, )
+    bot.send_message(chatID, text = best_match_answer, parse_mode='Markdown')
+
+def isNumericString(strNum):
+    try:
+        int(strNum)
+    except:
+        return False
+    return True
+
+def handleQuestionHeaders(chatId):
+    headers = ''
+    i = 0
+    for question in data['messages']:
+        i += 1
+        header = ''
+        header_started = False
+        for char in question:
+            if header_started:
+                header += char
+            if char == '#':
+                header_started = True
+            if char == '\n' and header != '':
+                header_started = False
+                headers += '\n' + str(i) + header
+                header = ''
+    bot.send_message(chatId, text = headers)
+
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard1)
+=======
 keyboard2 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard2.row('1', '2', '3')
 keyboard2.row('4', '5', '6')
 keyboard2.row('7', '8', '9')
 keyboard2.row('Назад')
+
 @bot.message_handler(commands=['Назад'])
 def back(message):
     bot.send_message(message.chat.id, 'Отлично', reply_markup=keyboard1)
