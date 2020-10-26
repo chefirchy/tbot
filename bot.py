@@ -55,7 +55,7 @@ def handleQuestionHeaders(chatId):
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, text="Добро пожаловать", reply_markup=keyboard1)
-=======
+
 keyboard2 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard2.row('1', '2', '3')
 keyboard2.row('4', '5', '6')
